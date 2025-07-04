@@ -1,5 +1,4 @@
 package com.example.lombok_demo;
-
 import lombok.*;
 
 import java.math.BigDecimal;
@@ -7,10 +6,13 @@ import java.time.LocalDate;
 
 @Builder
 @Getter
+@RequiredArgsConstructor
 class  DailySales {
-	private LocalDate saleDate;
-	private BigDecimal totalAmount;
-	private int orderCount;
+	@NonNull
+	private final LocalDate saleDate;
+	@NonNull
+	private final BigDecimal totalAmount;
+	private final int orderCount;
 }
 
 

@@ -1,22 +1,30 @@
 package com.example.lombok_demo;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
-class Memo {
-	private int id;
-	private String title;
-	private String content;
-}
+import java.math.BigDecimal;
 
+class CustomerRank {
+	private int customerId;
+	private BigDecimal totalSpent;
+	private int rank;
+
+	public CustomerRank() {}
+
+	public CustomerRank(int customerId, BigDecimal totalSpent, int rank) {
+		this.customerId = customerId;
+		this.totalSpent = totalSpent;
+		this.rank = rank;
+	}
+}
 
 
 public class LombokDemoApplication {
 	public static void main(String[] args) {
-		Memo memo = new Memo();
-		memo.setTitle("Hello, Lombok!");
-		assert "Hello, Lombok!".equals(memo.getTitle());
+		CustomerRank cr1 = new CustomerRank();
+		CustomerRank cr2 = new CustomerRank(1, new BigDecimal("10000.00"), 1);
 	}
 }

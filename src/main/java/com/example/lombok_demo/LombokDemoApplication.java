@@ -1,21 +1,25 @@
 package com.example.lombok_demo;
+
 import lombok.*;
 
-import java.math.BigDecimal;
-import java.time.LocalDate;
-
-@Data
-class DailySales {
-	private final LocalDate saleDate;
-	private final BigDecimal totalAmount;
-	private final int orderCount;
+@AllArgsConstructor
+class Memo {
+	private int id;
+	private String title;
+	private String content;
 }
 
 
 public class LombokDemoApplication {
 	public static void main(String[] args) {
-		DailySales ds = new DailySales(LocalDate.of(2025, 7, 4), new BigDecimal("10000.00"), 3);
+		Memo m1 = new Memo(1, "A", "B");
+		Memo m2 = new Memo(2, "X", "Y");
 
-		System.out.println(ds);
+		System.out.println(m1.equals(m2));
+		System.out.println(m2.equals(m1));
+
+		System.out.println(m1.hashCode());
+		System.out.println(m2.hashCode());
+		System.out.println(m1.hashCode() == m2.hashCode());
 	}
 }

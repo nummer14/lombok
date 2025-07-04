@@ -1,16 +1,14 @@
 package com.example.lombok_demo;
-
 import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
-@AllArgsConstructor
-@ToString(includeFieldNames = false)
+@Data
 class DailySales {
-	private LocalDate saleDate;
-	private BigDecimal totalAmount;
-	private int orderCount;
+	private final LocalDate saleDate;
+	private final BigDecimal totalAmount;
+	private final int orderCount;
 }
 
 

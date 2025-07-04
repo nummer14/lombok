@@ -2,22 +2,26 @@ package com.example.lombok_demo;
 
 import lombok.*;
 
-@AllArgsConstructor
-@ToString(onlyExplicitlyIncluded = true)
-class Memo {
-	@ToString.Include
-	private int id;
-	private String title;
-	private String content;
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
+@Builder
+@Getter
+class  DailySales {
+	private LocalDate saleDate;
+	private BigDecimal totalAmount;
+	private int orderCount;
 }
 
 
 public class LombokDemoApplication {
 	public static void main(String[] args) {
-		Memo m1 = new Memo(1, "A", "B");
-		Memo m2 = new Memo(1, "X", "Y");
+		DailySales ds = DailySales.builder()
+				.saleDate(LocalDate.of(2025, 7,4))
+				.totalAmount(new BigDecimal("10000.00"))
+				.orderCount(20)
+				.build();
 
-		System.out.println(m1);
-		System.out.println(m2);
+		System.out.println(ds.getOrderCount());
 	}
 }

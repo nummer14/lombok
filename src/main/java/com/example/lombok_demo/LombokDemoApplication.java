@@ -1,30 +1,22 @@
 package com.example.lombok_demo;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
-class CustomerRank {
-	private int customerId;
-	private BigDecimal totalSpent;
-	private int rank;
-
-	public CustomerRank() {}
-
-	public CustomerRank(int customerId, BigDecimal totalSpent, int rank) {
-		this.customerId = customerId;
-		this.totalSpent = totalSpent;
-		this.rank = rank;
-	}
+@AllArgsConstructor
+class DailySales {
+	private LocalDate saleDate;
+	private BigDecimal totalAmount;
+	private int orderCount;
 }
 
 
 public class LombokDemoApplication {
 	public static void main(String[] args) {
-		CustomerRank cr1 = new CustomerRank();
-		CustomerRank cr2 = new CustomerRank(1, new BigDecimal("10000.00"), 1);
+		DailySales ds = new DailySales(LocalDate.of(2025, 7, 4), new BigDecimal("10000.00"), 3);
+
+		System.out.println(ds.toString());;
 	}
 }

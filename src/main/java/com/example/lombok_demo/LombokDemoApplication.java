@@ -10,6 +10,13 @@ class DailySales {
 	private LocalDate saleDate;
 	private BigDecimal totalAmount;
 	private int orderCount;
+
+	@Override
+	public String toString() {
+		return "DailySales(saleDate=" + saleDate
+				+ ", totalAmount=" + totalAmount
+				+ ", orderCount=" + orderCount + ")";
+	}
 }
 
 

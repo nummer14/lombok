@@ -3,7 +3,9 @@ package com.example.lombok_demo;
 import lombok.*;
 
 @AllArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 class Memo {
+	@EqualsAndHashCode.Include
 	private int id;
 	private String title;
 	private String content;
@@ -13,7 +15,7 @@ class Memo {
 public class LombokDemoApplication {
 	public static void main(String[] args) {
 		Memo m1 = new Memo(1, "A", "B");
-		Memo m2 = new Memo(2, "X", "Y");
+		Memo m2 = new Memo(1, "X", "Y");
 
 		System.out.println(m1.equals(m2));
 		System.out.println(m2.equals(m1));
